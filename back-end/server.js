@@ -33,3 +33,4 @@ app.post("/login", controllerUser.getUser);
 app.post("/signup", controllerUser.createUser);
 
 app.post("/upload", controllerOmamori.createOmamori);
+app.get("/omamori", controllerOmamori.getOmamori);
