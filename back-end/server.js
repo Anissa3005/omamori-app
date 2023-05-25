@@ -4,6 +4,7 @@ const PORT = 8080;
 const cors = require("cors");
 
 const controllerUser = require("./controller/user");
+const controllerOmamori = require("./controller/omamori");
 
 const allowedOrigins = [
   "http://localhost:3000",
@@ -30,3 +31,5 @@ app.listen(PORT, () => {
 // ROUTES
 app.post("/login", controllerUser.getUser);
 app.post("/signup", controllerUser.createUser);
+
+app.post("/upload", controllerOmamori.createOmamori);
