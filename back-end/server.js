@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 8080;
 const cors = require("cors");
+
 const controllerUser = require("./controller/user");
 
 const allowedOrigins = [
@@ -28,3 +29,4 @@ app.listen(PORT, () => {
 
 // ROUTES
 app.post("/login", controllerUser.getUser);
+app.post("/signup", controllerUser.createUser);
