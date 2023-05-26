@@ -1,15 +1,14 @@
-const { getOmamori } = require("../controller/omamori");
 const knex = require("../db/knex");
 
 const OMAMORI_TABLE = "omamori";
 
 module.exports = {
   async createOmamori(omamori) {
-    const { idUser, img, latitude, longitude } = omamori;
+    const { userId, imgUrl, latitude, longitude } = omamori;
     const newOmamori = await knex(OMAMORI_TABLE)
       .insert({
-        id_user: idUser,
-        img_url: img,
+        id_user: userId,
+        img_url: imgUrl,
         latitude: latitude,
         longitude: longitude,
       })

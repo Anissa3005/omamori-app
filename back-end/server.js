@@ -23,6 +23,7 @@ const corsOptions = {
 
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cors(corsOptions));
 
 app.listen(PORT, () => {
   console.log(`Listen to port ${PORT}`);
