@@ -11,10 +11,36 @@ header {
 .header-title {
     font-family: 'Merriweather', serif;
     font-style: italic;
+    font-weight: 400;
     margin-left: 1em;
     font-size: 40px;
 }
 
 .upload-button {
     margin-right: 1em;
+}
+
+.container-button-sign-out {
+    display: flex;
+    align-items: center;
+    margin-right: 3em;
+}
+
+.container-button-sign-out > p {
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.upload-button {
+    width: 8em;
+    height: 2em;
+    border-radius: 6px;
+    border: none;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: var(--main-yellow-color);
+    cursor: pointer;
 }

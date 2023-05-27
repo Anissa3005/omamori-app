@@ -59,7 +59,7 @@ function App() {
     event.preventDefault();
     if (!username || !password) return;
 
-    const response = await fetch("http://localhost:8080/login", {
+    const response = await fetch("https://omamori.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ function App() {
     event.preventDefault();
     if (!newUser || !newPassword) return;
 
-    const response = await fetch("http://localhost:8080/signup", {
+    const response = await fetch("https://omamori.onrender.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,12 +129,16 @@ function App() {
     setImgUrl(event.target.value);
   }
 
+  function handelSignOut() {
+    setLoggedIn(!loggedIn);
+  }
+
   async function handelPin(event) {
     event.preventDefault();
     const latitude = `${coordinations.latitude}`;
     const longitude = `${coordinations.longitude}`;
 
-    const response = await fetch("http://localhost:8080/upload", {
+    const response = await fetch("https://omamori.onrender.com/upload", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -156,7 +160,7 @@ function App() {
     <>
       {loggedIn ? (
         <>
-          <Header onClick={handelModal} />
+          <Header onClick={handelModal} onSignOut={handelSignOut} />
           <div className="map-modal-container">
             {openModal ? (
               <Modal

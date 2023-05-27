@@ -10,6 +10,7 @@ export default function Login(props) {
           W<span className="login-pink-accent">e</span>lcome back
           <span className="login-pink-accent">.</span>
         </h1>
+        <p className="text-welcome">Welcome back! Please enter your details.</p>
         <div className="input-container">
           <label>Username</label>
           <input
