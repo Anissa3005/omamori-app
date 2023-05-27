@@ -1,0 +1,20 @@
+header {
+    background-color: white;
+    /* box-shadow: rgba(33, 35, 38, 0.1) 0px 20px 10px -17px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    border-bottom: 3px var(--main-pink-color) solid;
+}
+
+.header-title {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    margin-left: 1em;
+    font-size: 40px;
+}
+
+.upload-button {
+    margin-right: 1em;
+}

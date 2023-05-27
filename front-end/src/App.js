@@ -25,6 +25,8 @@ function App() {
   });
   // upload img
   const [imgUrl, setImgUrl] = useState("");
+  //Modal
+  const [openModal, setOpenModal] = useState(false);
 
   // useEffect(() => {
   //   console.log(coordinations);
@@ -132,26 +134,41 @@ function App() {
     const latitude = `${coordinations.latitude}`;
     const longitude = `${coordinations.longitude}`;
 
-    await fetch("http://localhost:8080/upload", {
+    const response = await fetch("http://localhost:8080/upload", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ userId, imgUrl, latitude, longitude }),
     });
+
+    if (response.ok) {
+      setOpenModal(!openModal);
+    }
   }
 
-  // function handelUpload() {
-  //   console.log("upload has been clicked");
-  // }
+  function handelModal() {
+    console.log("close is clicked");
+    setOpenModal(!openModal);
+  }
 
   return (
     <>
       {loggedIn ? (
         <>
-          <Header />
-          <Modal onInputImg={handelImgUrl} onClick={handelPin} />
-          <Map />
+          <Header onClick={handelModal} />
+          <div className="map-modal-container">
+            {openModal ? (
+              <Modal
+                onInputImg={handelImgUrl}
+                onClick={handelPin}
+                onCloseModal={handelModal}
+              />
+            ) : (
+              <></>
+            )}
+            <Map />
+          </div>
         </>
       ) : signUp ? (
         <>

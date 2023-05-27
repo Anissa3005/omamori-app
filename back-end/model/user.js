@@ -15,6 +15,7 @@ module.exports = {
       .returning("password");
 
     const dbPassword = userInfo[0].password;
+
     const checkPassword = await bcrypt.compare(password, dbPassword);
     return [checkPassword, userInfo[0].id];
   },
