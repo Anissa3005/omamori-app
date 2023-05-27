@@ -23,11 +23,7 @@ const allowedOrigins = [
 
 app.use(express.static("public"));
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://front-end-omamori.onrender.com/",
-  })
-);
+app.use(cors());
 // app.use(
 //   cors({
 //     origin: function (origin, callback) {
