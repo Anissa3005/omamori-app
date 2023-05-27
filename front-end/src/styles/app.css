@@ -4,5 +4,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-yellow-color: #FFDB58;
+    --main-pink-color: #FF69B4;
+
+}
+
+
+
 /* font-family: 'Merriweather', serif; */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');

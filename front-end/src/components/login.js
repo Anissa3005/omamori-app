@@ -1,27 +1,47 @@
+import "../styles/login.css";
 import React from "react";
 
 export default function Login(props) {
   const { onClick, onInputPassword, onInputUsername, onSignUp } = props;
   return (
-    <div>
+    <div className="login-container">
       <form className="login-form">
-        <label>Username:</label>
-        <input
-          id="username"
-          type="text"
-          placeholder="Username"
-          onChange={onInputUsername}
-        />
-        <label>Password:</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="password"
-          onChange={onInputPassword}
-        />
-        <button onClick={onClick}>Login</button>
+        <h1 className="login-title-welcome">
+          W<span className="login-pink-accent">e</span>lcome back
+          <span className="login-pink-accent">.</span>
+        </h1>
+        <div className="input-container">
+          <label>Username</label>
+          <input
+            id="username"
+            type="text"
+            placeholder="Username..."
+            onChange={onInputUsername}
+            required
+          />
+        </div>
+        <div className="input-container">
+          <label>Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Password..."
+            onChange={onInputPassword}
+            required
+          />
+        </div>
+
+        <button className="login-button" onClick={onClick}>
+          Sign in
+        </button>
+        <p className="login-sign-up-text">
+          Don't have a account?
+          <span className="login-pink-accent sign-up-click" onClick={onSignUp}>
+            {" "}
+            Sign up
+          </span>
+        </p>
       </form>
-      <button onClick={onSignUp}>sign-up</button>
     </div>
   );
 }

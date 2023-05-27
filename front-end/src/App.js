@@ -38,9 +38,9 @@ function App() {
     );
   }, [loggedIn]);
 
-  useEffect(() => {
-    console.log("already exist", userAlreadyExist);
-  }, [userAlreadyExist]);
+  // useEffect(() => {
+  //   console.log("already exist", userAlreadyExist);
+  // }, [userAlreadyExist]);
 
   function locationAllowed(location) {
     setCoordinations({
@@ -55,6 +55,7 @@ function App() {
 
   async function handelLogin(event) {
     event.preventDefault();
+    if (!username || !password) return;
 
     const response = await fetch("http://localhost:8080/login", {
       method: "POST",
@@ -68,6 +69,10 @@ function App() {
       const userId = await response.json();
       setUserId(userId);
       setLoggedIn(true);
+    }
+
+    if (response.status === 404) {
+      setLoggedIn(false);
     }
   }
 
@@ -93,6 +98,7 @@ function App() {
 
   async function handelCreateAccount(event) {
     event.preventDefault();
+    if (!newUser || !newPassword) return;
 
     const response = await fetch("http://localhost:8080/signup", {
       method: "POST",
@@ -118,7 +124,6 @@ function App() {
   }
 
   function handelImgUrl(event) {
-    console.log(event.target.value);
     setImgUrl(event.target.value);
   }
 
@@ -155,8 +160,8 @@ function App() {
             onSignUp={handelCreateAccount}
             inputNewUser={handelNewUsername}
             inputNewPassword={handelNewPassword}
+            alreadyExists={userAlreadyExist}
           />
-          {userAlreadyExist ? <p>*User already exists</p> : <></>}
         </>
       ) : (
         <Login

@@ -1,4 +1,4 @@
-.login-container {
+.sign-up-container {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -6,7 +6,9 @@
     flex-direction: column;
 }
 
-.login-form {
+/* font-family: 'Merriweather', serif; */
+
+.sign-up-form {
     border: 1px rgb(201, 200, 200) solid;
     height: 30rem;
     display: flex;
@@ -14,17 +16,20 @@
     align-items: center;
     flex-direction: column;
     border-radius: 9px;
-
 }
 
-.login-title-welcome {
+.join-up {
     font-family: 'Merriweather', serif;
     font-size: 40px;
     margin-top: 1em;
     margin-bottom: 2em;
 }
 
-.login-pink-accent {
+.yellow-accent {
+    color: var(--main-yellow-color);
+}
+
+.pink-accent {
     color: var(--main-pink-color);
 }
 
@@ -46,14 +51,10 @@
     margin-bottom: 0.70em;
     border-radius: 6px;
     border: 1px rgb(214, 214, 214) solid;
+    padding: 0.30em;
 }
 
-input::placeholder {
-    font-family: 'Merriweather', serif;
-    padding: 1em;
-}
-
-.login-button {
+.button-sign-up {
     margin-top: 1em;
     margin-bottom: 1em;
     width: 25em;
@@ -63,16 +64,22 @@ input::placeholder {
     font-family: 'Merriweather', serif;
     font-weight: 700;
     letter-spacing: 1px;
+    background-color: var(--main-pink-color);
+    cursor: pointer;
+}
+
+.button-sign-up:active {
     background-color: var(--main-yellow-color);
-    cursor: pointer;
 }
 
-.sign-up-click {
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.login-sign-up-text {
-    margin-bottom: 1em;
+.back-to-login {
     font-family: 'Merriweather', serif;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user-exists {
+    font-family: 'Merriweather', serif;
+    color: rgb(255, 95, 95);
 }
