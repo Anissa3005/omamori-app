@@ -25,15 +25,20 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "https://front-end-omamori.onrender.com/",
   })
 );
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (allowedOrigins.includes(origin) || !origin) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//   })
+// );
 
 app.listen(PORT, () => {
   console.log(`Listen to port ${PORT}`);
