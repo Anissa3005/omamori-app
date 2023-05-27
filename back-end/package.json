@@ -14,7 +14,7 @@
     "start": "node server.js",
     "migrate": "knex migrate:latest",
     "seeds": "knex seed:run",
-    "build": "npm install && npm run migrate && npm run seeds"
+    "build": "npm install && npm run migrate"
   },
   "name": "back-end",
   "version": "1.0.0",
