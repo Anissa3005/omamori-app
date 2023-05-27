@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import "../styles/map.css";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+
+import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 import { Icon } from "leaflet/dist/leaflet";
+// import MarkerClusterGroup from "react-leaflet-markercluster";
+import pin from "../img/pin.png";
 
 export default function Map() {
   const [omamori, setOmamori] = useState([]);
 
   const customIcon = new Icon({
-    iconUrl:
-      "https://img.freepik.com/premium-vector/red-pin-point-isolated-white-background_120819-360.jpg?w=826",
+    iconUrl: pin,
+
     iconSize: [38, 38],
   });
 
@@ -18,8 +21,8 @@ export default function Map() {
   }, [omamori]);
 
   // useEffect(() => {
-  //   console.log([Number(omamori[0].latitude), Number(omamori[0].longitude)]);
-  // }, []);
+  //   console.log(omamori);
+  // }, [omamori]);
 
   async function getOmamori() {
     const response = await fetch("http://localhost:8080/omamori");
@@ -34,11 +37,25 @@ export default function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {omamori.map((marker) => (
+        {omamori.map((marker, index) => (
           <Marker
             position={[Number(marker.latitude), Number(marker.longitude)]}
             icon={customIcon}
-          ></Marker>
+            key={index}
+          >
+            <Popup>
+              <div className="pop-up-container">
+                <h2>Shrine Name</h2>
+                <div className="omamori-img-container">
+                  <img
+                    className="omamori-img"
+                    src={marker.img_url}
+                    alt="omamori uploaded by a user"
+                  ></img>
+                </div>
+              </div>
+            </Popup>
+          </Marker>
         ))}
       </MapContainer>
     </div>
