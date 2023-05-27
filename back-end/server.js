@@ -23,30 +23,23 @@ const allowedOrigins = [
 
 app.use(express.static("public"));
 app.use(express.json());
+// app.use(cors());
 app.use(
   cors({
-    origin: "https://front-end-omamori.onrender.com/",
+    origin: [
+      "http://localhost:3000",
+      "https://front-end-omamori.onrender.com/",
+    ],
   })
 );
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       if (allowedOrigins.includes(origin) || !origin) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//   })
-// );
 
 app.listen(PORT, () => {
   console.log(`Listen to port ${PORT}`);
 });
 
 // ROUTES
-app.post("/login", controllerUser.getUser);
-app.post("/signup", controllerUser.createUser);
+app.post("/login", cors(), controllerUser.getUser);
+app.post("/signup", cors(), controllerUser.createUser);
 
-app.post("/upload", controllerOmamori.createOmamori);
-app.get("/omamori", controllerOmamori.getOmamori);
+app.post("/upload", cors(), controllerOmamori.createOmamori);
+app.get("/omamori", cors(), controllerOmamori.getOmamori);
