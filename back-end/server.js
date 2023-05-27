@@ -22,17 +22,19 @@ const allowedOrigins = [
 // };
 
 app.use(express.static("public"));
-app.use(express.json());
-// app.use(cors());
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://front-end-omamori.onrender.com/",
-    ],
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
   })
 );
 
+app.use(express.json());
 app.listen(PORT, () => {
   console.log(`Listen to port ${PORT}`);
 });
