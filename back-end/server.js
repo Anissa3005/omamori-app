@@ -38,8 +38,8 @@ app.listen(PORT, () => {
 });
 
 // ROUTES
-app.post("/login", cors(), controllerUser.getUser);
-app.post("/signup", cors(), controllerUser.createUser);
+app.post("/login", controllerUser.getUser);
+app.post("/signup", controllerUser.createUser);
 
-app.post("/upload", cors(), controllerOmamori.createOmamori);
-app.get("/omamori", cors(), controllerOmamori.getOmamori);
+app.post("/upload", controllerOmamori.createOmamori);
+app.get("/omamori", controllerOmamori.getOmamori);
