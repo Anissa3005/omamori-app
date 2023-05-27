@@ -1,0 +1,78 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form {
+    border: 1px rgb(201, 200, 200) solid;
+    height: 30rem;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border-radius: 9px;
+
+}
+
+.login-title-welcome {
+    font-family: 'Merriweather', serif;
+    font-size: 40px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.login-pink-accent {
+    color: var(--main-pink-color);
+}
+
+.input-container {
+    margin: 1em;
+}
+
+.input-container > label {
+    font-family: 'Merriweather', serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+ .input-container > input {
+    display: block;
+    height: 3em;
+    width: 25em;
+    margin-top: 0.60em;
+    margin-bottom: 0.70em;
+    border-radius: 6px;
+    border: 1px rgb(214, 214, 214) solid;
+}
+
+input::placeholder {
+    font-family: 'Merriweather', serif;
+    padding: 1em;
+}
+
+.login-button {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 25em;
+    height: 3em;
+    border-radius: 6px;
+    border: none;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: var(--main-yellow-color);
+    cursor: pointer;
+}
+
+.sign-up-click {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-sign-up-text {
+    margin-bottom: 1em;
+    font-family: 'Merriweather', serif;
+}

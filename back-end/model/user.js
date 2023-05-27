@@ -15,28 +15,29 @@ module.exports = {
       .returning("password");
 
     const dbPassword = userInfo[0].password;
+
     const checkPassword = await bcrypt.compare(password, dbPassword);
-    return checkPassword;
+    return [checkPassword, userInfo[0].id];
   },
 
   async createUser(user) {
-    const { username, password } = user;
+    const { newUser, newPassword } = user;
 
     const userExist = await knex(USER_TABLE)
-      .where({ username: username })
+      .where({ username: newUser })
       .first();
 
     console.log(userExist);
 
     if (!userExist) {
-      const hashPassword = await bcrypt.hash(password, 10);
-      const newUser = await knex(USER_TABLE)
+      const hashPassword = await bcrypt.hash(newPassword, 10);
+      const createNewUser = await knex(USER_TABLE)
         .insert({
-          username: username,
+          username: newUser,
           password: hashPassword,
         })
         .returning(["id", "password"]);
-      return newUser;
+      return createNewUser;
     } else {
       return false;
     }
