@@ -8,7 +8,7 @@ const controllerOmamori = require("./controller/omamori");
 
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://front-end-omamori.onrender.com/",
+  "https://front-end-omamori.onrender.com",
 ];
 
 // const corsOptions = {
