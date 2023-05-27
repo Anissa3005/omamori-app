@@ -25,7 +25,7 @@ export default function Map() {
   // }, [omamori]);
 
   async function getOmamori() {
-    const response = await fetch("http://localhost:8080/omamori");
+    const response = await fetch("https://omamori.onrender.com/omamori");
     const data = await response.json();
     setOmamori(data);
   }

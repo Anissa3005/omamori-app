@@ -21,8 +21,17 @@
     font-family: 'Merriweather', serif;
     font-size: 40px;
     margin-top: 1em;
-    margin-bottom: 2em;
+    
 }
+
+.text-welcome {
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 2em;
+    letter-spacing: 0.5px;
+}
+
 
 .login-pink-accent {
     color: var(--main-pink-color);
